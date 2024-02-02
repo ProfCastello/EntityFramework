@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using EntityFramework.Models;
 
 namespace EntityFramework.Data
 {
@@ -12,5 +13,6 @@ namespace EntityFramework.Data
         {
             modelBuilder.Entity<Models.Cliente>().ToTable("Cliente");
         }
+        public DbSet<EntityFramework.Models.Produto> Produto { get; set; } = default!;
     }
 }

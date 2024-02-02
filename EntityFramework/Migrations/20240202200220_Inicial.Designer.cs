@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFramework.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20240202190524_Inicial")]
+    [Migration("20240202200220_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -45,6 +45,27 @@ namespace EntityFramework.Migrations
                     b.HasKey("ClienteId");
 
                     b.ToTable("Cliente", (string)null);
+                });
+
+            modelBuilder.Entity("EntityFramework.Models.Produto", b =>
+                {
+                    b.Property<Guid>("ProdutoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProdutoId");
+
+                    b.ToTable("Produto");
                 });
 #pragma warning restore 612, 618
         }
